@@ -5,6 +5,8 @@ public class Main {
 	Boolean menu_loop = true;
 	Scanner scan = new Scanner(System.in);
 	
+	RetroGame retro = new RetroGame("Chrono Trigger", 1995,450000, "SNES","Square Soft","BNIB","Rare");
+	
 	Main(){
 		Integer menu_input = 0;
 		// Insert, view, exit
@@ -16,6 +18,7 @@ public class Main {
 			switch (menu_input) {
 			case 1:
 				//Add game to cart
+				retro.priceCalculation();
 				break;
 			case 2:
 				//Game view
