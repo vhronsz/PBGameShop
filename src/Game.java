@@ -11,6 +11,7 @@ public abstract class Game {
 		this.game_title = game_title;
 		this.release_year = release_year;
 		this.platform = platform;
+		this.price = 350000;
 	}
 
 
@@ -63,6 +64,6 @@ public abstract class Game {
 
 
 
-	public abstract int priceCalculation();
+	public abstract void priceCalculation();
 	
 }

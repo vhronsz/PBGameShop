@@ -22,10 +22,13 @@ public class Nextgen extends Game{
 
 
 	@Override
-	public int priceCalculation() {
+	public void priceCalculation() {
 		// TODO Auto-generated method stub
-		return 0;
+		
+		int service_price = 100000;
+		if(this.game_type.equalsIgnoreCase("multiplayer")) {
+			service_price = service_price *2;
+		}
+		int final_price = this.getPrice()+service_price;
 	}
-	
-
 }

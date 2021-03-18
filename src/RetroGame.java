@@ -39,10 +39,29 @@ public class RetroGame extends Game {
 
 
 	@Override
-	public int priceCalculation() {
+	public void priceCalculation() {
 		// TODO Auto-generated method stub
-		System.out.println(this.getGame_title());
-		return 0;
+		
+		int rarity_value = 150000;
+		int condition_value = 100000;
+		
+		if(this.condition.equals("BNIB")) {
+			condition_value= condition_value*5;
+		}else if(this.condition.equals("Average")) {
+			condition_value= condition_value*2;
+		}else {
+			condition_value= condition_value/2;
+		}
+		
+		if(this.rarity.equalsIgnoreCase("rare")) {
+			rarity_value = rarity_value* 5;
+		}else {
+			rarity_value= rarity_value * 2;
+		}
+		
+		int final_price = this.getPrice()+condition_value+rarity_value;
+		this.setPrice(final_price);
+		
 	}
 
 }
