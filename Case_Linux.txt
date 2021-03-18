@@ -1,4 +1,4 @@
-Buat folder dengan kriteria sebagai berikut 
+1. Buat folder dengan kriteria sebagai berikut 
 
 Retro game 
  Square Soft
@@ -8,6 +8,20 @@ Retro game
 Nextgen Game
  Ubisoft    
     Far Cry 5
-    
+=======
+mkdir "Retro Game"/"Square Soft"/{"Chrono Trigger","Final Fantasy 3","Secret of Mana"} "Nextgen Game"/Ubisoft/"Far Cry 5" -p
 
-Create Game_sales_report.txt on "Nextgen Game/Ubisoft" make that only the owner that can write the file while user on the same group only can read the file
+2. Create Game_sales_report.txt on "Nextgen Game/Ubisoft" make that only the owner that can read and write the file while the other user on the same group only can read the file
+======
+install -m=640 dev/null "Nextgen Game"/Ubisoft/Game_sales_report.txt
+
+3. Find files from Desktop with criteria like this :
+   - file format is .txt
+   - file size is under 1 kilobytes
+   - Inside Nextgen Game directory
+======
+find "Nextgen Game" -type f -size -10b -name "*.txt"
+
+4. Show memory usage by Megabytes in wide format then print the result 2 times with 1 second delay
+======
+free -m -w -s 1 -c 2

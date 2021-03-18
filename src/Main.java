@@ -5,8 +5,6 @@ public class Main {
 
 	Boolean menu_loop = true;
 	Scanner scan = new Scanner(System.in);
-	RetroGame retro = new RetroGame("Chrono Trigger", 1995, "SNES","BNIB","Rare");
-	Game next = new Nextgen("Call of Duty : New releases", 2021, "Ps5", "Multiplayer");
 	Vector<Game> gamelist = new Vector<>();
 	
 	public void cls() {
