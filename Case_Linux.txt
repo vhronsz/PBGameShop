@@ -1,0 +1,13 @@
+Buat folder dengan kriteria sebagai berikut 
+
+Retro game 
+ Square Soft
+    Chrono Trigger
+    Final Fantasy 3
+    Secret of Mana
+Nextgen Game
+ Ubisoft    
+    Far Cry 5
+    
+
+Create Game_sales_report.txt on "Nextgen Game/Ubisoft" make that only the owner that can write the file while user on the same group only can read the file
