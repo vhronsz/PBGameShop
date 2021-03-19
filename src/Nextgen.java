@@ -2,22 +2,22 @@
 public class Nextgen extends Game{
 	
 	
-	private String game_type;
+	private String services;
 	
-	public Nextgen(String game_title, int release_year, String platform,String game_type) {
+	public Nextgen(String game_title, int release_year, String platform,String services) {
 		super(game_title, release_year, platform);
 		// TODO Auto-generated constructor stub
-		this.game_type = game_type;
+		this.services = services;
 	}
 
 	
-	public String getGameType() {
-		return game_type;
+	public String getServices() {
+		return services;
 	}
 
 
-	public void setGameType(String game_type) {
-		this.game_type = game_type;
+	public void setGameType(String services) {
+		this.services = services;
 	}
 
 
@@ -26,7 +26,7 @@ public class Nextgen extends Game{
 		// TODO Auto-generated method stub
 		
 		int service_price = 100000;
-		if(this.game_type.equalsIgnoreCase("multiplayer")) {
+		if(this.services.equalsIgnoreCase("no service")) {
 			service_price = service_price *2;
 		}
 		int final_price = this.getPrice()+service_price;

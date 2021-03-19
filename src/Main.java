@@ -15,14 +15,14 @@ public class Main {
 	
 	public RetroGame insertRetro(String title,String platform,Integer release_year) {
 		boolean input_check = false;
-		String condition = "";
+		String media = "";
 		String rarity = "";
 		
 		while(input_check == false) {
-			System.out.print("Input game condition [BNIB|Average|Bad] : ");
-			condition = scan.nextLine();
+			System.out.print("Input game media [cartridge|disc] : ");
+			media  = scan.nextLine();
 			
-			if(condition.equals("BNIB")||condition.equals("Average")||condition.equals("Bad")) {
+			if(media.equals("cartridge")||media.equals("disc")) {
 				input_check = true;
 			}
 		}
@@ -37,7 +37,7 @@ public class Main {
 			}
 		}	
 		//Price
-		RetroGame game = new RetroGame(title, release_year, platform, condition, rarity);
+		RetroGame game = new RetroGame(title, release_year, platform, media, rarity);
 		game.priceCalculation();
 		return game;
 	
@@ -45,19 +45,19 @@ public class Main {
 	
 	public Nextgen insertNextGen(String title,String platform,Integer release_year) {
 		boolean input_check = false;
-		String game_type = "";
+		String services = "";
 		
 		while(input_check == false) {
-			System.out.print("Input game type [Singleplayer|Multiplayer] : ");
-			game_type = scan.nextLine();
+			System.out.print("Input game type [Online|Offline] : ");
+			services = scan.nextLine();
 			
-			if(game_type.equalsIgnoreCase("singleplayer") || game_type.equalsIgnoreCase("multiplayer")) {
+			if(services.equalsIgnoreCase("Online") || services.equalsIgnoreCase("Offline")) {
 				input_check = true;
 			}
 		}	
 		
 		//Price
-		Nextgen game = new Nextgen(title, release_year, platform, game_type);
+		Nextgen game = new Nextgen(title, release_year, platform, services);
 		game.priceCalculation();
 		return game;
 	}
@@ -94,24 +94,16 @@ public class Main {
 		
 		input_check = false;
 		
+		while(input_check == false) {
+			System.out.print("Input platform [Ends with 'system' max 12 Character long] : ");
+			platform = scan.nextLine();
+			if (platform.endsWith("system") && platform.length() <=12) {
+				input_check = true;
+			}
+		}		
 		if(release_year < 2011) {
-			while(input_check == false) {
-				System.out.print("Input platform [SNES|PC] : ");
-				platform = scan.nextLine();
-				if (platform.equals("SNES") || platform.equals("PC")) {
-					input_check = true;
-				}
-			}
 			gamelist.add(insertRetro(title, platform, release_year));
-			
 		}else {
-			while(input_check == false) {
-				System.out.print("Input platform [PS5|PC] : ");
-				platform = scan.nextLine();
-				if (platform.equals("PS5") || platform.equals("PC")) {
-					input_check = true;
-				}
-			}
 			gamelist.add(insertNextGen(title, platform, release_year));
 		}
 		
@@ -123,24 +115,31 @@ public class Main {
 	
 	public void viewGame() {
 		int count = 0;
+		System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
+		System.out.printf ("|No|%-17s| Year |   Platform   |   Media  | Rarity | %-12s |  %-7s|\n","     Title","  Service","Price");
+		System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
+		System.out.printf ("|%2d| %-16s| %-5d| %-13s| %-9s| %-7s| %-13s| %-8d|\n",count+1,"Testing a",2020,"PC system","BNIB","rare","offline",200000);
+
 		if(gamelist.size() == 0) {
 			System.out.println("No game added yet");
 		}else {
-			System.out.println("+==+=================+======+==========+===========+========+==============+=========+");
-			System.out.printf ("|No|%-17s| Year | Platform | Condition | Rarity | %-12s |  %-7s|\n","     Title","    Type","Price");
-			System.out.println("+==+=================+======+==========+===========+========+==============+=========+");
+			System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
+			System.out.printf ("|No|%-17s| Year |   Platform   |   Media  | Rarity | %-12s |  %-7s|\n","     Title","  Service","Price");
+			System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
 			
 			while(count < gamelist.size()) {
 				if(gamelist.get(count).getRelease_year() <= 2010) {
 					RetroGame data = (RetroGame) gamelist.get(count);
-					System.out.printf ("|%2d|%-17s| %-5d| %-9s| %-10s| %-7s| %-13s| %-8d|\n",count+1,data.getGame_title(),data.getRelease_year(),data.getPlatform(),data.getCondition(),data.getRarity(),"Singleplayer",data.getPrice());
+					System.out.printf ("|%2d| %-16s| %-5d| %-13s| %-9s| %-7s| %-13s| %-8d|\n",count+1,data.getGame_title(),data.getRelease_year(),data.getPlatform(),data.getMedia(),data.getRarity(),"No service",data.getPrice());
+//					System.out.printf ("|%2d|%-17s| %-5d| %-9s| %-10s| %-7s| %-13s| %-8d|\n",count+1,data.getGame_title(),data.getRelease_year(),data.getPlatform(),data.getCondition(),data.getRarity(),"Singleplayer",data.getPrice());
 				}else {
 					Nextgen next = (Nextgen) gamelist.get(count);
-					System.out.printf ("|%2d|%-17s| %-5d| %-9s| %-10s| %-7s| %-13s| %-8d|\n",count+1,next.getGame_title(),next.getRelease_year(),next.getPlatform(),"BNIB","Common",next.getGameType(),next.getPrice());
+					System.out.printf ("|%2d| %-16s| %-5d| %-13s| %-9s| %-7s| %-13s| %-8d|\n",count+1,next.getGame_title(),next.getRelease_year(),next.getPlatform(),"Download","Unrated",next.getServices(),next.getPrice());
+//					System.out.printf ("|%2d|%-17s| %-5d| %-9s| %-10s| %-7s| %-13s| %-8d|\n",count+1,next.getGame_title(),next.getRelease_year(),next.getPlatform(),"BNIB","Common",next.getGameType(),next.getPrice());
 				}
 				count++;
 			}
-			System.out.println("+==+=================+======+==========+===========+========+==============+=========+");
+			System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
 		}
 	}
 	

@@ -1,27 +1,26 @@
 
 public class RetroGame extends Game {
-
-	private String condition;
-	private String rarity;
 	
+	private String rarity;
+	private String media;
 
-	public RetroGame(String game_title, int release_year, String platform,String condition,String rarity) {
+	public RetroGame(String game_title, int release_year, String platform,String media,String rarity) {
 		// TODO Auto-generated constructor stub
 		super(game_title, release_year, platform);
-		this.condition = condition;
+		this.media = media;
 		this.rarity = rarity;
 	}
 
 
 
-	public String getCondition() {
-		return condition;
+	public String getMedia() {
+		return media;
 	}
 
 
 
-	public void setCondition(String condition) {
-		this.condition = condition;
+	public void setMedia(String media) {
+		this.media = media;
 	}
 
 
@@ -43,14 +42,14 @@ public class RetroGame extends Game {
 		// TODO Auto-generated method stub
 		
 		int rarity_value = 150000;
-		int condition_value = 100000;
+		int media_value = 100000;
 		
-		if(this.condition.equals("BNIB")) {
-			condition_value= condition_value*5;
-		}else if(this.condition.equals("Average")) {
-			condition_value= condition_value*2;
+		if(this.media.equals("cartridge")) {
+			media_value = media_value *5;
+		}else if(this.media.equals("disc")) {
+			media_value = media_value *2;
 		}else {
-			condition_value= condition_value/2;
+			media_value = media_value /2;
 		}
 		
 		if(this.rarity.equalsIgnoreCase("rare")) {
@@ -59,7 +58,7 @@ public class RetroGame extends Game {
 			rarity_value= rarity_value * 2;
 		}
 		
-		int final_price = this.getPrice()+condition_value+rarity_value;
+		int final_price = this.getPrice()+media_value+rarity_value;
 		this.setPrice(final_price);
 		
 	}
