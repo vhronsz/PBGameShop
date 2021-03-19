@@ -26,9 +26,10 @@ public class Nextgen extends Game{
 		// TODO Auto-generated method stub
 		
 		int service_price = 100000;
-		if(this.services.equalsIgnoreCase("no service")) {
+		if(this.services.equalsIgnoreCase("offline")) {
 			service_price = service_price *2;
 		}
 		int final_price = this.getPrice()+service_price;
+		this.setPrice(final_price);
 	}
 }

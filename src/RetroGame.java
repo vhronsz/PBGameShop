@@ -48,8 +48,6 @@ public class RetroGame extends Game {
 			media_value = media_value *5;
 		}else if(this.media.equals("disc")) {
 			media_value = media_value *2;
-		}else {
-			media_value = media_value /2;
 		}
 		
 		if(this.rarity.equalsIgnoreCase("rare")) {

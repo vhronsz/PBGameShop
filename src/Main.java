@@ -87,7 +87,7 @@ public class Main {
 		while(input_check == false) {
 			System.out.print("Input game release year [1990-2021]: ");
 			release_year = scan.nextInt();scan.nextLine();
-			if(release_year >= 1982 && release_year <= 2021) {
+			if(release_year >= 1990 && release_year <= 2021) {
 				input_check = true;
 			}
 		}
@@ -150,7 +150,7 @@ public class Main {
 		}else {
 			int delete = -1;
 			while(delete < 1 || delete > gamelist.size()) {
-				System.out.println("Choose game to delete [1-"+gamelist.size()+"]");
+				System.out.print("Choose game to delete [1-"+gamelist.size()+"]: ");
 				delete = scan.nextInt();scan.nextLine();				
 			}
 			delete = delete--;
