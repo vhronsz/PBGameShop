@@ -115,11 +115,11 @@ public class Main {
 	
 	public void viewGame() {
 		int count = 0;
-		System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
+/*		System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
 		System.out.printf ("|No|%-17s| Year |   Platform   |   Media  | Rarity | %-12s |  %-7s|\n","     Title","  Service","Price");
 		System.out.println("+==+=================+======+==============+==========+========+==============+=========+");
 		System.out.printf ("|%2d| %-16s| %-5d| %-13s| %-9s| %-7s| %-13s| %-8d|\n",count+1,"Testing a",2020,"PC system","BNIB","rare","offline",200000);
-
+*/
 		if(gamelist.size() == 0) {
 			System.out.println("No game added yet");
 		}else {
